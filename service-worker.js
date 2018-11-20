@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 importScripts(
-  "/DmitriyMaslovN/myfirstpage1.github.io.git/precache-manifest.0964d9eb2c0eef17757b6ad024091d9c.js"
+  "/myfirstpage1.github.io/precache-manifest.26a184857154c9fedcc45823b379d7e5.js"
 );
 
 workbox.clientsClaim();
@@ -28,7 +28,7 @@ self.__precacheManifest = [].concat(self.__precacheManifest || []);
 workbox.precaching.suppressWarnings();
 workbox.precaching.precacheAndRoute(self.__precacheManifest, {});
 
-workbox.routing.registerNavigationRoute("/DmitriyMaslovN/myfirstpage1.github.io.git/index.html", {
+workbox.routing.registerNavigationRoute("/myfirstpage1.github.io/index.html", {
   
   blacklist: [/^\/_/,/\/[^\/]+\.[^\/]+$/],
 });

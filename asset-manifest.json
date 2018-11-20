@@ -1,11 +1,11 @@
 {
-  "main.js": "/DmitriyMaslovN/myfirstpage1.github.io.git/static/js/main.eab28e1f.chunk.js",
-  "main.js.map": "/DmitriyMaslovN/myfirstpage1.github.io.git/static/js/main.eab28e1f.chunk.js.map",
-  "static/js/1.29647430.chunk.js": "/DmitriyMaslovN/myfirstpage1.github.io.git/static/js/1.29647430.chunk.js",
-  "static/js/1.29647430.chunk.js.map": "/DmitriyMaslovN/myfirstpage1.github.io.git/static/js/1.29647430.chunk.js.map",
-  "runtime~main.js": "/DmitriyMaslovN/myfirstpage1.github.io.git/static/js/runtime~main.330fa375.js",
-  "runtime~main.js.map": "/DmitriyMaslovN/myfirstpage1.github.io.git/static/js/runtime~main.330fa375.js.map",
-  "index.html": "/DmitriyMaslovN/myfirstpage1.github.io.git/index.html",
-  "precache-manifest.0964d9eb2c0eef17757b6ad024091d9c.js": "/DmitriyMaslovN/myfirstpage1.github.io.git/precache-manifest.0964d9eb2c0eef17757b6ad024091d9c.js",
-  "service-worker.js": "/DmitriyMaslovN/myfirstpage1.github.io.git/service-worker.js"
+  "main.js": "/myfirstpage1.github.io/static/js/main.eab28e1f.chunk.js",
+  "main.js.map": "/myfirstpage1.github.io/static/js/main.eab28e1f.chunk.js.map",
+  "static/js/1.29647430.chunk.js": "/myfirstpage1.github.io/static/js/1.29647430.chunk.js",
+  "static/js/1.29647430.chunk.js.map": "/myfirstpage1.github.io/static/js/1.29647430.chunk.js.map",
+  "runtime~main.js": "/myfirstpage1.github.io/static/js/runtime~main.4d058b13.js",
+  "runtime~main.js.map": "/myfirstpage1.github.io/static/js/runtime~main.4d058b13.js.map",
+  "index.html": "/myfirstpage1.github.io/index.html",
+  "precache-manifest.26a184857154c9fedcc45823b379d7e5.js": "/myfirstpage1.github.io/precache-manifest.26a184857154c9fedcc45823b379d7e5.js",
+  "service-worker.js": "/myfirstpage1.github.io/service-worker.js"
 }
