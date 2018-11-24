@@ -13,6 +13,8 @@ import LoginForm from './components/SubmitLP.jsx';
 import App from './components/srcWithForm/App.jsx';
 import PersonForm from './components/PersoFormTar.jsx';
 import FilterProduct from './components/search/Appsearch.jsx';
+import AppNews from './components/AppNews.jsx';
+import FileInput from './components/fileInput.jsx';
 import NotFound from './components/notfound.jsx';
 
 
@@ -55,7 +57,12 @@ ReactDOM.render(<Router>
                             <Route exact path="/examples/searchf"
                                 component={FilterProduct}
                                 />
-                            
+                            <Route path="/examples/news"
+                                component={AppNews}
+                                />
+                            <Route path="/examples/file"
+                                component={FileInput}
+                                />
                             <Route component={NotFound}
                                 />
                         </Switch>

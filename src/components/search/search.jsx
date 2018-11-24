@@ -145,7 +145,7 @@ class FilterProductTable extends React.Component{
                 <ProductTable 
                     products={this.props.products} 
                     filterText={this.state.filterText}
-                    isStockOnly={this.state.isStockOnly}
+                    inStockOnly={this.state.inStockOnly}
                     />
             </div>
         );

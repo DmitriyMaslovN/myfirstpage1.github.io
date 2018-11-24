@@ -42,11 +42,15 @@ class Navigations extends React.Component{
                     Person Form<br/>
                 </NavLink>
                 <NavLink to="/examples/searchf">
-                    Filter Product
+                    Filter Product<br/>
                 </NavLink>
-                    
-            
-            </nav>
+                <NavLink to="/examples/news">
+                    News<br/>
+                </NavLink>
+                <NavLink to="/examples/file">
+                    File Upload
+                </NavLink>
+             </nav>
         )
     }
 }
