@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import {BrowserRouter as Router, Route, NavLink, Switch} from 'react-router-dom';
+import {HashRouter as Router, Route, NavLink, Switch} from 'react-router-dom';
 import Navigate from './components/nav.jsx';
 import Home from './components/Home.jsx';
 import Examples from './components/examples.jsx';

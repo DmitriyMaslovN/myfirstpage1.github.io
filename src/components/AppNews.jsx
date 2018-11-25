@@ -28,177 +28,160 @@ import ReactDOM from 'react-dom';
         }
     ];
         
-    class Article extends React.Component{
-            
+   class Article extends React.Component{
             state = {
-                visible: false,
+                visible: false
             }
-
-        handleClick = (e) => {
-            e.preventDefault();
-            this.setState({visible: true})
-           
-        }
-       
-        
-        render(){
-            const {author, text, secText} = this.props.data;
-            const { visible } = this.state;
-            return (
-                <div className="article">
-                    <p className="news_author">{author}:</p>
-                    <p className="news_text">{text}</p>
-                    {
-                        !visible && <a onClick={this.handleClick} 
-                                        href="#" className="news_readmore">
-                                        Readmore
-                                    </a>
-                    }
-                    {
-                        visible && <p className="news_sec-text">{secText}</p>
-                    }
-                    
-                </div>
-            );
+            onClickSecText = (e) => {
+                e.preventDefault();
+                this.setState({visible: true})
             }
-        }
-
-   
-        
-    class News extends React.Component{
-         renderNews = () => {
-          const { data } = this.props;
-          let newsTemplate = null
-          
-          if(data.length){
-            newsTemplate = data.map(function(item) {
+            render(){
+                const {author, text, secText} = this.props.data;
+                const { visible } = this.state; 
                 return(
-                    <Article key={item.id} data={item}/>
-                )
-          })
-          } else {
-             newsTemplate =  <p>Unfortunately doesn't have news</p>
-          }
-          
-        return newsTemplate
-      }
-      
-          render() {
-              const { data } = this.props // similarly data = this.props.data
-              return(
-            <div className="news">
-                  {this.renderNews()}
-                  {
-                    data.length ? <strong >
-                                        All the news: {data.length}
-                                    </strong> : null
-                  }
-                  
-              </div>
-          );
-        }
-      }
-      
-     
-  
-        
-    class Add extends React.Component{
-        constructor(props) {
-            super(props);
-            this.state = {
-                name: '',
-                text: '',
-                secText: '',
-                agree: false
-            }
-        }
-        validated = () => {
-            const {name, text, agree} = this.state;
-            if(name.trim() && text.trim() && agree){
-                return true;
-            }
-            return false;
-        }
-        onButtonClick = (e) => {
-            const {name, text, secText} = this.state
-            this.props.onAddNews({
-                id: +new Date(), // id contains the number of ms. tha have passed since 1 jan 1970 
-                author: name,
-                text,
-                secText
-            })
-            e.preventDefault();
-        }
-        handleChange = (e) => {
-            const {id, value} = e.currentTarget
-            this.setState({[id]: e.currentTarget.value})
-        }
-       
-        handleCheckboxChange = (e) => {
-            this.setState({agree: e.currentTarget.checked})
-        }
-        
-        render(){
-            const { text, name, secText, agree } = this.state
-         return(
-            <form className="add">
-                <input 
-                    id="name"
-                    type="text"
-                    className="add_author"
-                    placeholder="your name"
-                    onChange={this.handleChange}
-                    value={name}
-                    />
-                 <textarea
-                     id="text"
-                     placeholder="input news"
-                     className="add_text"
-                     onChange={this.handleChange}
-                     value={text}>
-                 </textarea> 
-                 <textarea 
-                     id="secText"
-                     placeholder="input second text"
-                     className="sec_text"
-                     onChange={this.handleChange}
-                     value={secText}>
-                </textarea>
-                 <label className="add_checkrule">
-                     <input type="checkbox" 
-                         onChange={this.handleCheckboxChange}/> I am agree with the rules
-                </label>
-               
-                <button 
-                    onClick={this.onButtonClick}
-                    className="add_btn"
-                    disabled={!this.validated()}>
-                    Show alert
-                </button>
-            </form>
+                    <div className="article">
+                        <p className="news_author">{author}:</p>
+                        <p className="news_text">{text}</p>
+                        {
+                            !visible && <a onClick={this.onClickSecText}
+                                            href="#">
+                                            Readmore
+                                        </a>
+                        }
+                        {
+                            visible && <p className="news_sec-text">{secText}</p>
+                        }
+                    </div>
                 );
             }
         }
-    
-        
-    class AppNews extends React.Component {
-        state ={
-            news: myNews
+   
+        class News extends React.Component{
+            renderNews = () => {
+                let newsTamplate = null;
+                const {data} = this.props;
+                
+                if(data.length){
+                newsTamplate = data.map(function(item){
+                    return <Article key={item.id} data={item}/>
+                })
+                } else {
+                    newsTamplate =  <p>Ufortunately isn't news</p>
+                }
+                return newsTamplate;
+            }
+            render() {
+                const{data} = this.props
+                return (
+                    <div className="news">
+                        {this.renderNews()}
+                        {
+                            data.length ? <strong>
+                                    All the news: {data.length}
+                                    </strong>: null
+                        }
+                    </div>
+                )
+            }
         }
-        handleAddNews = (data) => {
-           const nextNews = ([data, ...this.state.news])
-           this.setState({news: nextNews})
+       
+        class Add extends React.Component{
+            constructor(props){
+                super(props);
+                this.state = {
+                    author: '',
+                    text: '',
+                    secText: '',
+                    agree: false
+                }
+            }
+            validate = () => {
+                const {author, text, secText, agree} = this.state
+                if(author.trim() && author.length > 3 
+                   && 
+                   text.trim() && text.length > 6 
+                   &&
+                   secText.trim() && secText.length > 6 
+                   &&
+                   agree){
+                    return true;
+                }
+                return false;
+            }
+            onButton = (e) => {
+                e.preventDefault();
+                const {author, text, secText} = this.state
+                this.props.onHandlerNews({
+                    id: +new Date(), // id contains numbers of ms. that have passed since 1 jan 1970
+                    author,
+                    text,
+                    secText
+                })
+                
+            }
+            onHandlerChange = (e) => {
+                const {id, value} = e.currentTarget;
+                this.setState({[id]: e.currentTarget.value})
+            }
+            handleCheckbox = (e) => {
+               this.setState({agree: e.currentTarget.checked})
+            }
+            render(){
+                const {author, text, secText, agree} = this.state
+                return(
+                    <form className="add">
+                        <input type="text"
+                            placeholder="Input Author..."
+                            className="add_author"
+                            id="author"
+                            onChange={this.onHandlerChange}
+                            value={author}
+                            />
+                        <textarea placeholder="Input Text..."
+                            id="text"
+                            onChange={this.onHandlerChange}
+                            value={text}
+                            className="add_text">
+                        </textarea>
+                        <textarea placeholder="Input Secondary Text"
+                            id="secText"
+                            className="sec-text"
+                            onChange={this.onHandlerChange}
+                            value={secText}>
+                        </textarea>
+                        <label className="add_chekrule">
+                        <input type="checkbox"
+                            onChange={this.handleCheckbox}/>
+                            I agree with the rules
+                        </label>
+                        <button className="add_btn"
+                            onClick={this.onButton}
+                            disabled={!this.validate()}>
+                            Show last news
+                        </button>
+                    </form>
+                )
+            }
         }
-        render() {
-          return (
-            <React.Fragment>
-                <h3>News</h3>
-                <Add onAddNews={this.handleAddNews}/>
-                <News data={this.state.news} /> {/* comment */}
-            </React.Fragment>
-        )
+        class AppNews extends React.Component{
+            state ={
+                news: myNews
+            }
+            onAddNews = (data) => {
+                const lastNews = ([data, ...this.state.news])
+                this.setState({news: lastNews})
+            }
+            render(){
+                return(
+                    <React.Fragment>
+                        <h3>News</h3>
+                        <Add onHandlerNews={this.onAddNews}/>
+                        <News data={this.state.news}/>
+                        </React.Fragment>
+                )
+            }
         }
-    }
    
    export default AppNews;
  

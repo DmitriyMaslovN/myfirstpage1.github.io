@@ -1,5 +1,5 @@
 import React from 'react';
-import {NavLink, BrowserRouter} from 'react-router-dom';
+import {NavLink, HashRouter} from 'react-router-dom';
 
 export default class Navigate extends React.Component{
     render() {
